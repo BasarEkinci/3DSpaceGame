@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using SpaceGame.Controllers;
 using UnityEngine;
 
 namespace SpaceGame.Movements
@@ -7,15 +8,17 @@ namespace SpaceGame.Movements
     public class Mover
     {
         private Rigidbody rigidbody;
+        private PlayerController playerController;
 
-        public Mover(Rigidbody rigidbody)
+        public Mover(PlayerController playerController)
         {
-            this.rigidbody = rigidbody;
+            this.playerController = playerController;
+            rigidbody = playerController.GetComponent<Rigidbody>();
         }
 
         public void FixedTick()
         {
-            this.rigidbody.AddRelativeForce(Vector3.up * (Time.deltaTime * 55f));
+            rigidbody.AddRelativeForce(Vector3.up * (Time.deltaTime * playerController.Force));
         }
     }
 }

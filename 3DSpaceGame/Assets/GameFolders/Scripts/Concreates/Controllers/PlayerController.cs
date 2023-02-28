@@ -7,13 +7,23 @@ namespace SpaceGame.Controllers
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] private float turnSpeed = 10f;
+        [SerializeField] private float force = 55f;
         private DefaultInput input;
+        
         private bool isForceUp;
+        private float leftRight;
+        private Rotator rotator;
+        
         private Mover mover;
+        public float TurnSpeed => turnSpeed;
+        public float Force=> force;
+
         private void Awake()
         {
             input = new DefaultInput();
-            mover = new Mover(GetComponent<Rigidbody>());
+            mover = new Mover(this);
+            rotator = new Rotator(this);
         }
 
         private void Update()
@@ -26,6 +36,8 @@ namespace SpaceGame.Controllers
             {
                 isForceUp = false;
             }
+
+            leftRight = input.LeftRight;
         }
 
         private void FixedUpdate()
@@ -34,6 +46,8 @@ namespace SpaceGame.Controllers
             {
                 mover.FixedTick();
             }
+
+            rotator.FixedTick(leftRight);
         }
     }
 }
