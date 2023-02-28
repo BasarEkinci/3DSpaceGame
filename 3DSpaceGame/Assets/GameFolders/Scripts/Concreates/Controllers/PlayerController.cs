@@ -9,13 +9,14 @@ namespace SpaceGame.Controllers
     {
         [SerializeField] private float turnSpeed = 10f;
         [SerializeField] private float force = 55f;
+
         private DefaultInput input;
-        
-        private bool isForceUp;
-        private float leftRight;
         private Rotator rotator;
-        
         private Mover mover;
+        private Fuel fuel;
+        
+        private bool canForceUp;
+        private float leftRight;
         public float TurnSpeed => turnSpeed;
         public float Force=> force;
 
@@ -24,29 +25,30 @@ namespace SpaceGame.Controllers
             input = new DefaultInput();
             mover = new Mover(this);
             rotator = new Rotator(this);
+            fuel = GetComponent<Fuel>();
         }
 
         private void LateUpdate()
         {
-            if (input.IsForceUp)
+            if (input.IsForceUp && !fuel.IsEmpty)
             {
-                isForceUp = true;
+                canForceUp = true;
             }
             else
             {
-                isForceUp = false;
+                canForceUp = false;
+                fuel.FuelIncrease(0.005f);
             }
-
             leftRight = input.LeftRight;
         }
 
         private void FixedUpdate()
         {
-            if (isForceUp)
+            if (canForceUp)
             {
                 mover.FixedTick();
+                fuel.FuelDecrease(0.2f);
             }
-
             rotator.FixedTick(leftRight);
         }
     }
