@@ -1,19 +1,19 @@
 using System;
 using SpaceGame.Inputs;
+using SpaceGame.Movements;
 using UnityEngine;
 
 namespace SpaceGame.Controllers
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private float force;
-        private Rigidbody rigidBody;
         private DefaultInput input;
         private bool isForceUp;
+        private Mover mover;
         private void Awake()
         {
-            rigidBody = GetComponent<Rigidbody>();
             input = new DefaultInput();
+            mover = new Mover(GetComponent<Rigidbody>());
         }
 
         private void Update()
@@ -32,7 +32,7 @@ namespace SpaceGame.Controllers
         {
             if (isForceUp)
             {
-                rigidBody.AddForce(Vector3.up * (force * Time.deltaTime));
+                mover.FixedTick();
             }
         }
     }
