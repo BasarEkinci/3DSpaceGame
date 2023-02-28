@@ -26,7 +26,7 @@ namespace SpaceGame.Controllers
             rotator = new Rotator(this);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (input.IsForceUp)
             {
