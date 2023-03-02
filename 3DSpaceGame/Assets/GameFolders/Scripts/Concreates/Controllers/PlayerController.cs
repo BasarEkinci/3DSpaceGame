@@ -41,11 +41,13 @@ namespace SpaceGame.Controllers
         private void OnEnable()
         {
             GameManager.Instance.OnGameOver += HandleOnEventTrigger;
+            GameManager.Instance.OnMissionSucced += HandleOnEventTrigger;
         }
 
         private void OnDisable()
         {
             GameManager.Instance.OnGameOver -= HandleOnEventTrigger;
+            GameManager.Instance.OnMissionSucced -= HandleOnEventTrigger;
         }
 
         private void Update()
