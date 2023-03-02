@@ -1,4 +1,3 @@
-using System;
 using SpaceGame.Inputs;
 using SpaceGame.Movements;
 using UnityEngine;
