@@ -9,7 +9,6 @@ namespace SpaceGame.Movements
     {
         private Rigidbody rigidbody;
         private PlayerController playerController;
-
         public Rotator(PlayerController playerController)
         {
             this.playerController = playerController;

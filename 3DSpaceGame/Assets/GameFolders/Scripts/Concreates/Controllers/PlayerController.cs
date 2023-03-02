@@ -10,6 +10,9 @@ namespace SpaceGame.Controllers
         [SerializeField] private float turnSpeed = 10f;
         [SerializeField] private float force = 55f;
 
+        [SerializeField] private ParticleSystem leftSmoke;
+        [SerializeField] private ParticleSystem rightSmoke;
+
         private DefaultInput input;
         private Rotator rotator;
         private Mover mover;
@@ -28,7 +31,7 @@ namespace SpaceGame.Controllers
             fuel = GetComponent<Fuel>();
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             if (input.IsForceUp && !fuel.IsEmpty)
             {
@@ -40,6 +43,26 @@ namespace SpaceGame.Controllers
                 fuel.FuelIncrease(0.005f);
             }
             leftRight = input.LeftRight;
+
+            if (leftRight == -1)
+            {
+                if (leftSmoke.isStopped)
+                {
+                    leftSmoke.Play();
+                }
+            }
+            else if (leftRight == 1)
+            {
+                if (rightSmoke.isStopped)
+                {
+                    rightSmoke.Play();
+                }
+            }
+            else if (leftRight == 0)
+            {
+                leftSmoke.Stop();
+                rightSmoke.Stop();
+            }
         }
 
         private void FixedUpdate()
