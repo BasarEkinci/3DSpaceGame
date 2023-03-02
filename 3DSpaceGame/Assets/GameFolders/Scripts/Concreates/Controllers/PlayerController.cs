@@ -1,4 +1,6 @@
+using System;
 using SpaceGame.Inputs;
+using SpaceGame.Managers;
 using SpaceGame.Movements;
 using UnityEngine;
 
@@ -16,7 +18,8 @@ namespace SpaceGame.Controllers
         private Rotator rotator;
         private Mover mover;
         private Fuel fuel;
-        
+
+        private bool canMove;
         private bool canForceUp;
         private float leftRight;
         public float TurnSpeed => turnSpeed;
@@ -30,8 +33,26 @@ namespace SpaceGame.Controllers
             fuel = GetComponent<Fuel>();
         }
 
+        private void Start()
+        {
+            canMove = true;
+        }
+
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGameOver += HandleOnEventTrigger;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGameOver -= HandleOnEventTrigger;
+        }
+
         private void Update()
         {
+            if(!canMove) 
+                return;
+            
             if (input.IsForceUp && !fuel.IsEmpty)
             {
                 canForceUp = true;
@@ -42,7 +63,13 @@ namespace SpaceGame.Controllers
                 fuel.FuelIncrease(0.005f);
             }
             leftRight = input.LeftRight;
+            
+            TurnEffects();
 
+        }
+
+        private void TurnEffects()
+        {
             if (leftRight == -1)
             {
                 if (leftSmoke.isStopped)
@@ -72,6 +99,14 @@ namespace SpaceGame.Controllers
                 fuel.FuelDecrease(0.2f);
             }
             rotator.FixedTick(leftRight);
+        }
+        
+        private void HandleOnEventTrigger()
+        {
+            canMove = false;
+            canForceUp = false;
+            leftRight = 0;
+            fuel.FuelIncrease(0f);
         }
     }
 }

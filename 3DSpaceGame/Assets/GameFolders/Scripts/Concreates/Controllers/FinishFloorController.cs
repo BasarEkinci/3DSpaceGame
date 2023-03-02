@@ -1,3 +1,4 @@
+using SpaceGame.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +23,7 @@ namespace SpaceGame.Controllers
             else
             {
                 //Game Over
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.Instance.GameOver();
             }
         }
     }
