@@ -12,12 +12,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4572058015571619094, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572058015571619094, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.41
       objectReference: {fileID: 0}
     - target: {fileID: 4572058015571619094, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 4572058015571619094, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75,5 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8798887fdb3d684fb20e548021b37cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 5}
   factor: 0
+  speed: 5

@@ -7,9 +7,10 @@ namespace SpaceGame.Controllers
     public class MoverWallController : WallController
     {
         [SerializeField] private Vector3 direction;
-        [Range(0f, 1f)] [SerializeField] private float factor;
         [SerializeField] private float speed = 1f;
+        [SerializeField] private float directionFactor = 1f;
         
+        private float factor;
         private Vector3 startPosition;
         private const float FULL_CIRCLE = Mathf.PI * 2f;
         private void Awake()
@@ -23,7 +24,7 @@ namespace SpaceGame.Controllers
             
             factor = Mathf.Abs(sinWave);
 
-            Vector3 offset = direction * factor;
+            Vector3 offset = direction * (factor * directionFactor);
             transform.position = offset + startPosition;
         }
     }
