@@ -1,6 +1,5 @@
 using SpaceGame.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace SpaceGame.Controllers
 {

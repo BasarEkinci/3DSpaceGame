@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace SpaceGame.Movements
 {
@@ -12,7 +8,7 @@ namespace SpaceGame.Movements
         [SerializeField] private float currentFuel;
         [SerializeField] private ParticleSystem particle;
         public bool IsEmpty => currentFuel < 1f;
-
+        public float CurrentFuel => currentFuel / maxFuel;
         private void Awake()
         {
             currentFuel = maxFuel;
@@ -22,7 +18,6 @@ namespace SpaceGame.Movements
         {
             currentFuel += increase;
             currentFuel = Mathf.Min(currentFuel, maxFuel);
-
             if (particle.isPlaying)
             {
                 particle.Stop();

@@ -1,4 +1,3 @@
-using System;
 using SpaceGame.Abstracts.Controllers;
 using UnityEngine;
 
