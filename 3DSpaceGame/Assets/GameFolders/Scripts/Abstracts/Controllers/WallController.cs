@@ -1,11 +1,11 @@
+using SpaceGame.Controllers;
 using SpaceGame.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-namespace SpaceGame.Controllers
+namespace SpaceGame.Abstracts.Controllers
 {
-    public class WallController : MonoBehaviour
+    public abstract class WallController : MonoBehaviour
     {
         private void OnCollisionEnter(Collision collision)
         {

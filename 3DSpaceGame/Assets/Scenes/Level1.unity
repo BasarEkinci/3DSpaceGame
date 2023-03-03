@@ -347,14 +347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 181889303, guid: 6e482f36657826b418111dc024a573b1, type: 3}
-      propertyPath: m_text
-      value: NEXT\nLEVEL
-      objectReference: {fileID: 0}
-    - target: {fileID: 181889303, guid: 6e482f36657826b418111dc024a573b1, type: 3}
-      propertyPath: m_fontSize
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5908706953260609770, guid: 6e482f36657826b418111dc024a573b1, type: 3}
       propertyPath: m_Name
       value: GameCanvas
