@@ -11,7 +11,7 @@ namespace SpaceGame.Controllers
         {
             PlayerController player = collision.collider.GetComponent<PlayerController>();
 
-            if (player != null)
+            if (player != null && player.CanMove)
             {
                 GameManager.Instance.GameOver();
             }

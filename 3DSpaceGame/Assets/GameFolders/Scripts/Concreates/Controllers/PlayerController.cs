@@ -24,6 +24,7 @@ namespace SpaceGame.Controllers
         private float leftRight;
         public float TurnSpeed => turnSpeed;
         public float Force=> force;
+        public bool CanMove => canMove;
 
         private void Awake()
         {

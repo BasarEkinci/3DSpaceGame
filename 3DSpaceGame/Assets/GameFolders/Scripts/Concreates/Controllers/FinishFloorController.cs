@@ -13,7 +13,7 @@ namespace SpaceGame.Controllers
         {
             PlayerController player = collision.collider.GetComponent<PlayerController>();
 
-            if (player == null) return;
+            if (player == null || !player.CanMove) return;
 
             if (collision.GetContact(0).normal.y == -1)
             {
