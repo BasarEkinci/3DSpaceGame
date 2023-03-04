@@ -1,3 +1,4 @@
+using SpaceGame.Managers;
 using UnityEngine;
 
 namespace SpaceGame.Movements
@@ -22,6 +23,8 @@ namespace SpaceGame.Movements
             {
                 particle.Stop();
             }
+            
+            SoundManager.Instance.StopSound(0);
         }
 
         public void FuelDecrease(float decrease)
@@ -33,6 +36,8 @@ namespace SpaceGame.Movements
             {
                 particle.Play();
             }
+            
+            SoundManager.Instance.PlaySound(0);
         }
     }
 }

@@ -30,7 +30,9 @@ namespace SpaceGame.Managers
         }
         private IEnumerator LoadLevelSceneAsync(int levelIndex)
         {
+            SoundManager.Instance.StopSound(1);
             yield return SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + levelIndex);
+            SoundManager.Instance.PlaySound(2);
         }
 
         public void LoadMenu()
@@ -40,7 +42,9 @@ namespace SpaceGame.Managers
 
         private IEnumerator LoadMenuSceneAsync()
         {
+            SoundManager.Instance.StopSound(2);
             yield return SceneManager.LoadSceneAsync("Menu");
+            SoundManager.Instance.PlaySound(1);
         }
 
         public void Exit()
