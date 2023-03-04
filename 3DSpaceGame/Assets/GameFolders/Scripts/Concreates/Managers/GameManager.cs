@@ -1,32 +1,19 @@
 using System.Collections;
+using SpaceGame.Abstracts.Utilities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace SpaceGame.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : SingeltonThisObjects<GameManager>
     {
         public event System.Action OnGameOver;
         public event System.Action OnMissionSucced;
-        public static GameManager Instance { get; private set; }
         private void Awake()
         {
-            SingeltonThisGameObject();
+            SingeltonThisGameObject(this);
         }
-
-        private void SingeltonThisGameObject()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(this.gameObject);
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
-        }
-
+        
         public void GameOver()
         {
             OnGameOver?.Invoke();// if(OnGameOver != null){ GameOver(); }
