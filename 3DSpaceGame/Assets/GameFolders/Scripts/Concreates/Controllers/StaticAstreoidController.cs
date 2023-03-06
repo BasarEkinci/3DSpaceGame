@@ -5,6 +5,6 @@ namespace SpaceGame.Controllers
 {
     public class StaticAstreoidController : AsteroidController
     {
-
+        
     }
 }

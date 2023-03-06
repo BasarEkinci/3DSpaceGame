@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticWall2
       objectReference: {fileID: 0}
+    - target: {fileID: 7685614231401289510, guid: 75fa853e20b2d6143a70dce5f5a19833, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75fa853e20b2d6143a70dce5f5a19833, type: 3}
 --- !u!1 &4276090399914165761 stripped

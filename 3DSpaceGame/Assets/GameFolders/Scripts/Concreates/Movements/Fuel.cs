@@ -1,4 +1,6 @@
+using System;
 using SpaceGame.Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SpaceGame.Movements
@@ -13,6 +15,16 @@ namespace SpaceGame.Movements
         private void Awake()
         {
             currentFuel = maxFuel;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Fuel"))
+            {
+                FuelIncrease(15);
+                SoundManager.Instance.PlaySound(4);
+                Destroy(other.GameObject(),0.1f);
+            }
         }
 
         public void FuelIncrease(float increase)

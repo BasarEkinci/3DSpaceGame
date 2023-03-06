@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoverWall
       objectReference: {fileID: 0}
+    - target: {fileID: 7685614231401289510, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2595121855692626065, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64ecfa02aea7eff49855a903aaf6dad1, type: 3}
@@ -80,5 +84,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 5}
-  factor: 0
   speed: 5
+  directionFactor: 1

@@ -18,6 +18,7 @@ namespace SpaceGame.Controllers
             {
                 finishFireworks.gameObject.SetActive(true);
                 finishLights.gameObject.SetActive(true);
+                SoundManager.Instance.PlaySound(5);
                 GameManager.Instance.MissionSucced();
             }
             else

@@ -4,6 +4,6 @@ namespace SpaceGame.Controllers
 {
     public class StaticWallController : WallController
     {
-
+        
     }
 }
