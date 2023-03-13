@@ -18,7 +18,7 @@ namespace SpaceGame.UIs
 
         public void LinkedinButton()
         {
-            Application.OpenURL("https://www.linkedin.com/in/ismail-başar-ekinci-446674202/");
+            Application.OpenURL("https://www.linkedin.com/in/ismail-basar-ekinci-446674202/");
         }
 
         public void TwitterButton()
