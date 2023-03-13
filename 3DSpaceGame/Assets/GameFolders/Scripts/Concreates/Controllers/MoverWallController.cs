@@ -14,7 +14,7 @@ namespace SpaceGame.Controllers
         private const float FULL_CIRCLE = Mathf.PI * 2f;
         private void Awake()
         {
-            startPosition = transform.position;
+            startPosition = transform.localPosition;
         }
         private void Update()
         {
@@ -24,7 +24,7 @@ namespace SpaceGame.Controllers
             factor = Mathf.Abs(sinWave);
 
             Vector3 offset = direction * (factor * directionFactor);
-            transform.position = offset + startPosition;
+            transform.localPosition = offset + startPosition;
         }
     }
 }
