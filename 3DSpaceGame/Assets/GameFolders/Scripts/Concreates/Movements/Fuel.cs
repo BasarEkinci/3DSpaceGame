@@ -21,7 +21,7 @@ namespace SpaceGame.Movements
         {
             if (other.CompareTag("Fuel"))
             {
-                FuelIncrease(15);
+                FuelIncrease(500);
                 SoundManager.Instance.PlaySound(4);
                 Destroy(other.GameObject(),0.1f);
             }
@@ -29,7 +29,7 @@ namespace SpaceGame.Movements
 
         public void FuelIncrease(float increase)
         {
-            currentFuel += increase;
+            currentFuel += increase * Time.deltaTime;
             currentFuel = Mathf.Min(currentFuel, maxFuel);
             if (particle.isPlaying)
             {
@@ -41,7 +41,7 @@ namespace SpaceGame.Movements
 
         public void FuelDecrease(float decrease)
         {
-            currentFuel -= decrease;
+            currentFuel -= decrease *Time.deltaTime;
             currentFuel = Mathf.Max(currentFuel, 0);
 
             if (particle.isStopped)

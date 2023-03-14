@@ -13,7 +13,7 @@ public class BreakPointFloorController : MonoBehaviour
         
         if (player != null)
         {
-            fuel.FuelIncrease(3f);
+            fuel.FuelIncrease(850f);
         }
     }
 }

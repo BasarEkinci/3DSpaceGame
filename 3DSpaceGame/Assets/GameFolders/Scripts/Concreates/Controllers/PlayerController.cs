@@ -62,7 +62,7 @@ namespace SpaceGame.Controllers
             else
             {
                 canForceUp = false;
-                fuel.FuelIncrease(0.008f);
+                fuel.FuelIncrease(5f);
             }
             leftRight = input.LeftRight;
             
@@ -98,7 +98,7 @@ namespace SpaceGame.Controllers
             if (canForceUp)
             {
                 mover.FixedTick();
-                fuel.FuelDecrease(0.2f);
+                fuel.FuelDecrease(12f);
             }
             rotator.FixedTick(leftRight);
         }
