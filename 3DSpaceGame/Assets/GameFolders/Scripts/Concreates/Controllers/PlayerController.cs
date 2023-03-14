@@ -62,7 +62,7 @@ namespace SpaceGame.Controllers
             else
             {
                 canForceUp = false;
-                fuel.FuelIncrease(0.005f);
+                fuel.FuelIncrease(0.008f);
             }
             leftRight = input.LeftRight;
             
